@@ -5,6 +5,9 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
+    <!-- Tailwind CSS CDN -->
+
+
     <meta
       name="description"
       content="Web site created using create-react-app"
@@ -24,7 +27,30 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Welcome to my world</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Droid+Serif&display=swap" rel="stylesheet">
+
+
+
+    <script src="https://cdn.tailwindcss.com">
+   tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          primary: '#1e1e1e',
+          secondary: '#ff9900',
+        },
+        fontFamily: {
+          serif: ['"Droid Serif"', 'Georgia', 'serif'],
+        },
+        letterSpacing: {
+          wider: '.05em',
+        },
+      }
+    }
+  }
+</script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
