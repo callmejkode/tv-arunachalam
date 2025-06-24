@@ -8,6 +8,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Search from './pages/Search';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 function AppLayout() {
   const location = useLocation();
@@ -25,6 +26,7 @@ function AppLayout() {
         <Route path="/search" element={<Search />} />
       </Routes>
       <Footer />
+      <ScrollToTop />
     </>
   );
 }
