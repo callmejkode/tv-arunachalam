@@ -1,45 +1,3 @@
-// import { Link } from 'react-router-dom';
-// import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
-// import { FiSearch } from 'react-icons/fi';
-
-// function Navbar() {
-//   return (
-//     <header className="w-full border-b border-gray-200 shadow-sm font-sans">
-//       <div className="h-16 w-full flex items-center justify-between px-6 relative">
-
-//         {/* Left: Social Icons */}
-//         <div className="flex items-center space-x-4 text-gray-600 text-sm">
-//           <a href="#" className="hover:text-black"><FaFacebookF /></a>
-//           <a href="#" className="hover:text-black"><FaTwitter /></a>
-//           <a href="#" className="hover:text-black"><FaInstagram /></a>
-//         </div>
-
-//         {/* Center: Navigation */}
-//         <nav className="absolute left-1/2 transform -translate-x-1/2">
-//           <ul className="flex space-x-6 uppercase text-[16px] tracking-[.2em] font-semibold">
-//             <li><Link to="/">Home</Link></li>
-//             <li><Link to="/gallery">Gallery</Link></li>
-//             <li><Link to="/poems">Poems</Link></li>
-//             <li><Link to="/blog">Blog</Link></li>
-//             <li><Link to="/about">About</Link></li>
-//             <li><Link to="/contact">Contact</Link></li>
-//           </ul>
-//         </nav>
-
-//         {/* Right: Search */}
-//         <div className="flex items-center text-gray-600 hover:text-black cursor-pointer">
-//           <Link to="/search">
-//             <FiSearch size={16} />
-//           </Link>
-//         </div>
-//       </div>
-//     </header>
-//   );
-// }
-
-// export default Navbar;
-
-
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
@@ -48,16 +6,39 @@ import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi';
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+const [lastScrollY, setLastScrollY] = useState(0);
+
   const mobileMenuRef = useRef();
 
   const navItems = [
     { name: 'Home', path: '/' },
+     { name: 'About', path: '/about' },
+         { name: 'Blog', path: '/blog' },
+             { name: 'Poems', path: '/poems' },
     { name: 'Gallery', path: '/gallery' },
-    { name: 'Poems', path: '/poems' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'About', path: '/about' },
+
+
+   
     { name: 'Contact', path: '/contact' },
   ];
+useEffect(() => {
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 60) {
+      setShowNavbar(false); // scrolling down
+    } else {
+      setShowNavbar(true);  // scrolling up
+    }
+
+    setLastScrollY(currentScrollY);
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  return () => window.removeEventListener('scroll', handleScroll);
+}, [lastScrollY]);
+
 
   // Close menu on outside click
   useEffect(() => {
@@ -71,7 +52,12 @@ function Navbar() {
   }, [menuOpen]);
 
   return (
-    <header className="w-full border-b border-gray-200 shadow-sm font-sans z-50 relative">
+    <header
+  className={`w-full border-b border-gray-200 shadow-sm font-sans z-50 fixed top-0 left-0 bg-white transition-transform duration-300 ease-in-out ${
+    showNavbar ? 'translate-y-0' : '-translate-y-full'
+  }`}
+>
+
       <div className="h-16 w-full flex items-center justify-between px-6 relative">
 
         {/* Left: Social Icons */}
@@ -83,7 +69,7 @@ function Navbar() {
 
         {/* Center Nav (Desktop Only) */}
         <nav className="hidden md:flex absolute left-1/2 transform -translate-x-1/2">
-          <ul className="flex space-x-6 uppercase text-[15px] tracking-[.15em] font-semibold">
+          <ul className="flex space-x-6 graytext uppercase text-[15px] tracking-[.15em] font-semibold">
             {navItems.map((item, i) => (
               <li key={i}>
                 <Link to={item.path}>{item.name}</Link>

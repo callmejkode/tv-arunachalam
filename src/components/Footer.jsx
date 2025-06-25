@@ -25,14 +25,14 @@ function Footer() {
 
         {/* About Me */}
         <div>
-          <h4 className="uppercase text-[12px] tracking-[2.5px] font-bold mb-3 tracking-wide">About Me</h4>
+          <h4 className="uppercase text-[13px] graytext tracking-[2.5px] font-bold mb-3 tracking-wide">About Me</h4>
           <img src="/your-profile.png" alt="Profile" className="w-20 h-20 object-cover mb-2" />
           <p>Hello. I am a freelance writer. I live in a small town somewhere in the world.</p>
         </div>
 
         {/* Tags */}
         <div>
-          <h4 className="uppercase text-[12px] tracking-[2.5px] font-bold mb-3 tracking-wide">Tags</h4>
+          <h4 className="uppercase text-[13px] graytext tracking-[2.5px] font-bold mb-3 tracking-wide">Tags</h4>
           <div className="flex flex-wrap gap-2">
             {['design', 'layout', 'photo', 'css', 'typography', 'mobile'].map((tag, i) => (
              <span
@@ -47,7 +47,7 @@ function Footer() {
 
         {/* Trending */}
         <div>
-          <h4 className="uppercase text-[12px] tracking-[2.5px] font-bold mb-3 tracking-wide">Trending</h4>
+          <h4 className="uppercase text-[13px] graytext tracking-[2.5px] font-bold mb-3 tracking-wide">Trending</h4>
           {[1, 2].map((_, i) => (
             <div className="flex items-center mb-3" key={i}>
               <img src={`/trending${i+1}.jpg`} className="w-12 h-12 object-cover mr-3" alt="Trending" />
@@ -61,7 +61,7 @@ function Footer() {
 
         {/* Recent Posts */}
         <div>
-          <h4 className="uppercase text-[12px] tracking-[2.5px] font-bold mb-3 tracking-wide">Recent Posts</h4>
+          <h4 className="uppercase text-[13px] graytext tracking-[2.5px] font-bold mb-3 tracking-wide">Recent Posts</h4>
          <ul className="space-y-3">
   {[
     'Runaway A Road Adventure',

@@ -4,10 +4,10 @@ function Home() {
 
 
   return (
-   <section className="relative w-full min-h-[70vh] bg-white font-serif text-center pt-8 pb-20">
+   <section className="relative w-full min-h-[70vh] bg-white font-serif text-center pt-20 pb-20">
       
       {/* Logo */}
-      <div className="flex justify-center mb-2">
+      <div className="flex justify-center mb-4">
         <img
           src="tv-arunachalam-logo.png"
           alt="Banner image"
