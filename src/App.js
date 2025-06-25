@@ -17,6 +17,7 @@ function AppLayout() {
     <>
       <Navbar />
       <Routes location={location}>
+
         <Route path="/" element={<Home />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/poems" element={<Poems />} />
@@ -24,8 +25,10 @@ function AppLayout() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/search" element={<Search />} />
+             
+
       </Routes>
-      <Footer />
+ <Footer />
       <ScrollToTop />
     </>
   );
